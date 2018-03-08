@@ -26,5 +26,4 @@ The mean stack encorporates the use of [monoDB](https://www.mongodb.com/) implem
 4. Run it on your browser .
     ```bash
    node index.js
-   '''
 
