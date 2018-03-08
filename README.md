@@ -27,3 +27,8 @@ The mean stack encorporates the use of [monoDB](https://www.mongodb.com/) implem
     ```bash
    node index.js
 
+   
+An assignment from [rentomojo](https://www.rentomojo.com/)
+
+
+(NOTE: DELETE requests have been commented out)

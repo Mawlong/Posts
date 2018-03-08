@@ -74,15 +74,15 @@ angular.module('demo', [])
 
         //delete request
 
-        _self.delete = function(commentId) {
-          $http.delete('/comments/'+commentId)
-            .then(function(response){
-              console.log("Successful!");
+        // _self.delete = function(commentId) {
+        //   $http.delete('/comments/'+commentId)
+        //     .then(function(response){
+        //       console.log("Successful!");
 
-              _self.getComments();
-            })
-            .catch(function(response){
-                  console.log("failed");
-            })
-        }     
+        //       _self.getComments();
+        //     })
+        //     .catch(function(response){
+        //           console.log("failed");
+        //     })
+        // }     
 }])

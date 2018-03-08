@@ -31,20 +31,6 @@ router.post('/', function(request, response) {
     })
 });
 
-//deleting a post
-
-router.delete('/:id', function(request, response) {
-  const id = request.params.id;
-
-  Comments.findByIdAndRemove(id)
-    .then(function(){
-      response.end();
-    })
-    .catch(function(err){
-      response.status(500).json(err)
-    })
-});
-
 //Used to update the number of Upvotes on a post
 
 router.post('/:id/upvotes/', function(request, response) {
@@ -86,5 +72,19 @@ router.post('/:id/downvotes/', function(request, response) {
       response.status(500).json(err);
     })
   });
+
+  //deleting a post
+
+// router.delete('/:id', function(request, response) {
+//   const id = request.params.id;
+
+//   Comments.findByIdAndRemove(id)
+//     .then(function(){
+//       response.end();
+//     })
+//     .catch(function(err){
+//       response.status(500).json(err)
+//     })
+// });
 
 module.exports = router;
