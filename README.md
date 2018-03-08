@@ -1,10 +1,10 @@
 # Posts
 A simple REST api using the MEAN stack implementing posting comments with likes and dislikes.
 
-#What is a REST api?
+# What is a REST api?
 A RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data.
 
-#MEAN stack?
+# MEAN stack?
 The mean stack encorporates the use of [monoDB](https://www.mongodb.com/) implemented through [mongoose](http://mongoosejs.com/), [express.js](https://expressjs.com/), [angular.js](https://angularjs.org/) and [node.js](https://nodejs.org/en/) in order to build a full stack application.
 
 # HOW-TO
