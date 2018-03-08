@@ -1,0 +1,26 @@
+{
+  "name": "posts",
+  "version": "1.0.0",
+  "description": "A REST api using the MEAN stack to implement a post api with likes and dislikes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mawlong/Posts.git"
+  },
+  "author": "Leon Patrick Mawlong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mawlong/Posts/issues"
+  },
+  "homepage": "https://github.com/Mawlong/Posts#readme",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.9"
+  }
+}
