@@ -11,7 +11,7 @@ The mean stack encorporates the use of [monoDB](https://www.mongodb.com/) implem
 
 1. Clone this repo:
     ```bash
-    git clone https://github.com/vlence/node-typescript-boilerplate.git
+    git clone https://github.com/Mawlong/Posts.git
     ```
 
 2. Install dependencies.
