@@ -1,8 +1,10 @@
+<!doctype HTML>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Leon Patrick Mawlong">
   <title>Comments</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -31,11 +33,12 @@
             
             {{ comment.comment }} <br>
             - <i>{{ comment.name }}</i><br>
+
             <table class ="table">
               <trbody>
-                <td><button class="btn btn-outline-success" ng-click="like(comment._id, comment.upvotes)">Likes</button>  {{comment.upvotes}}</td>
-                <td><button class = "btn btn-outline-secondary" ng-click="dislike(comment._id, comment.downvotes)">Dislikes</button>  {{comment.downvotes}}</td>
-                <td><button class="btn btn-outline-danger" ng-click="delete(comment._id)">Delete Post</button></td>
+                <td>{{comment.upvotes}}  <button class="btn btn-outline-success" ng-click="ctrl.upvote(comment._id)">Upvotes</button></td>
+                <td>{{comment.downvotes}}  <button class = "btn btn-outline-secondary" ng-click="ctrl.downvote(comment._id)">Downvotes</button></td>
+                <td><button class="btn btn-outline-danger" ng-click="ctrl.delete(comment._id)">Delete Post</button></td>
               </trbody>
             </table>
           </li>

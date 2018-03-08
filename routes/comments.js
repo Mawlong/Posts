@@ -3,8 +3,9 @@ const Comments = require('../models/Comments');
 
 const router = express.Router();
 
-router.get('/', function(request, response) {
+//used to render all the posts
 
+router.get('/', function(request, response) {
   Comments.find().lean().exec()
     .then(function(comments) {
       response.json(comments);
@@ -14,6 +15,8 @@ router.get('/', function(request, response) {
     });
 
 });
+
+//used to add a post
 
 router.post('/', function(request, response) {
   const name    = request.body.name;
@@ -28,53 +31,11 @@ router.post('/', function(request, response) {
     })
 });
 
-router.put('/:id', function(request, response) {
-  const id = request.params.id;
-  const like = request.body.like;
-  const dislike = request.body.dislike;
-  // Comments.update({_id:id},{$inc:{upvotes:1}}, function(err) {
-  //   if(err){
-  //     console.log(err);
-  //   }
-  //   Comments.findOne({_id:id}, function(err){
-  //     if(err){
-  //       console.log(err);
-  //     }
-  //   })
-  // })
-  if(dislike === 1){
-    Comments.findByIdAndUpdate(id,{$inc:{downvotes:1}})
-    .then(function(comment){
-      response.json(comment);
-    })
-    .catch(function(err){
-      response.status(500).json(err);
-    })
-  }
-  if(like === 1){
-    Comments.findByIdAndUpdate(id,{$inc:{upvotes:1}})
-    .then(function(comment){
-      response.json(comment);
-    })
-    .catch(function(err){
-      response.status(500).json(err);
-    })
-  }
-});
-
-  // Comments.findByIdAndUpdate(id, 
-    
-  //   { $inc: {upvote:1 }},
-  //   { new: true })
-  //   .then(function(newUpvote) {
-  //     response.json(newUpvote);
-  //   })
-  //   .catch(function(err) {
-  //     response.status(500).json(err)
-  //   })
+//deleting a post
 
 router.delete('/:id', function(request, response) {
   const id = request.params.id;
+
   Comments.findByIdAndRemove(id)
     .then(function(){
       response.end();
@@ -83,5 +44,47 @@ router.delete('/:id', function(request, response) {
       response.status(500).json(err)
     })
 });
+
+//Used to update the number of Upvotes on a post
+
+router.post('/:id/upvotes/', function(request, response) {
+  const id = request.params.id;
+  const upvotes = request.body.upvotes;
+  const query = { _id: id };
+  const update = {
+    $inc: {
+      upvotes: upvotes
+    },    
+  }
+
+  Comments.findOneAndUpdate(query, update, { new: true }).exec()
+    .then(function(comment) {
+      response.json(comment);
+    })
+    .catch(function(err) {
+      response.status(500).json(err);
+    })
+});
+
+//Used to update the number of downvotes on a post
+
+router.post('/:id/downvotes/', function(request, response) {
+  const id = request.params.id;
+  const downvotes = request.body.downvotes;
+  const query = { _id: id };
+  const update = {
+    $inc: {
+      downvotes: downvotes
+    },
+  }
+
+  Comments.findOneAndUpdate(query, update, { new: true }).exec()
+    .then(function(comment) {
+      response.json(comment);
+    })
+    .catch(function(err) {
+      response.status(500).json(err);
+    })
+  });
 
 module.exports = router;
